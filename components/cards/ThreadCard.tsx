@@ -1,3 +1,4 @@
+import { formatDateString } from "@/lib/utils";
 import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -107,7 +108,31 @@ const ThreadCard = ({
                         </div>
                     </div>
                 </div>
+
+                {/* TODO: Delete Thread */}
+                {/* TODO: Show Replies */}
+
             </div>
+            {!isComment && community && (
+                <Link
+                    href={`/communities/${community.id}`}
+                    className="mt-5 flex items-center"
+                >
+                    <p className="text-subtle-medium text-gray-1">
+                        {formatDateString(createdAt)}
+                        {" "}-  {community.name} Community
+                    </p>
+
+                    <div className="relative h-6 w-6 object-cover">
+                        <Image
+                            src={community.image}
+                            alt="community image"
+                            fill
+                            className="ml-2 rounded-full object-cover"
+                        />
+                    </div>
+                </Link>
+            )}
         </article>
     )
 }
