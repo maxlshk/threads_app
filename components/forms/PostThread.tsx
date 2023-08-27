@@ -17,7 +17,6 @@ import { Textarea } from "../ui/textarea"
 import { usePathname, useRouter } from 'next/navigation'
 import { useOrganization } from "@clerk/nextjs";
 import { ThreadValidation } from "@/lib/validations/thread";
-import { updateUser } from "@/lib/actions/user.actions"
 import { createThread } from "@/lib/actions/thread.actions";
 
 interface Props {

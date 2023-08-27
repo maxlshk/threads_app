@@ -113,26 +113,33 @@ const ThreadCard = ({
                 {/* TODO: Show Replies */}
 
             </div>
-            {!isComment && community && (
-                <Link
-                    href={`/communities/${community.id}`}
-                    className="mt-5 flex items-center"
-                >
-                    <p className="text-subtle-medium text-gray-1">
-                        {formatDateString(createdAt)}
-                        {" "}-  {community.name} Community
-                    </p>
+            {!isComment &&
+                (community ? (
+                    <Link
+                        href={`/communities/${community.id}`}
+                        className="mt-5 flex items-center"
+                    >
 
-                    <div className="relative h-6 w-6 object-cover">
-                        <Image
-                            src={community.image}
-                            alt="community image"
-                            fill
-                            className="ml-2 rounded-full object-cover"
-                        />
-                    </div>
-                </Link>
-            )}
+                        <p className="text-subtle-medium text-gray-1">
+                            {formatDateString(createdAt)}
+                            {" "}-  {community.name} Community
+                        </p>
+
+                        <div className="relative h-6 w-6 object-cover">
+                            <Image
+                                src={community.image}
+                                alt="community image"
+                                fill
+                                className="ml-2 rounded-full object-cover"
+                            />
+                        </div>
+                    </Link>
+                ) : (
+                    <p className="text-subtle-medium text-gray-1 mt-5">
+                        {formatDateString(createdAt)}
+                    </p>
+                ))
+            }
         </article>
     )
 }
