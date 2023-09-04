@@ -108,10 +108,8 @@ const ThreadCard = ({
                         </div>
                     </div>
                 </div>
-
                 {/* TODO: Delete Thread */}
                 {/* TODO: Show Replies */}
-
             </div>
             {!isComment &&
                 (community ? (
